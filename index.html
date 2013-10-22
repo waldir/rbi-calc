@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>Calculadora RBI em Portugal</title>
+	<style type="text/css">
+		form > table {
+			background-color: silver;
+			width: 600px;
+			margin: 0 auto;
+			border-collapse: collapse;
+		}
+		form > table td, form > table th {
+			border: 1px solid grey;
+			padding: 0.5em;
+		}
+	</style>
+</head>
+<body>
+
+	<p>Isto é uma calculadora para o Rendimento Básico Incondicional. Clica nas caixinhas para usar esses valores para financiar um RBI. No caso de considerares aumentar um dos 3 impostos (IVA, IRC, IRS) escreve o valor adicional que gostarias de arrecadar para ajudar a financiar o RBI. Embora tenha encontrado referências para todos os valores abaixo, sente-te em casa para alterá-los e verificar as diferenças num RBI.<p>
+
+	<p>Sugestões e mudanças são bem vindas.</p>
+
+	<form name="GPACalcForm">
+		<table>
+		<tbody>
+			<tr>
+				<th>DESPESAS				</th>
+				<th>Euros (Milhões)			</th>
+				<th>Substituir por RBI?		</th>
+				<th>RECEITAS				</th>
+				<th>Euros (Milhões)			</th>
+				<th>Aumentar e por no RBI?	</th>
+			</tr>
+			<tr>
+				<td>Segurança Social <a href="http://www.pordata.pt/Portugal/Despesa+da+Seguranca+Social+total+e+por+tipo-100">[1]</a> (total: 29356) </td>
+				<td><input size="5" name="GR1" maxlength="5" type="text" value="29356" align="top"></td>
+				<td><input name="CR1" type="checkbox" align="top" onclick="UBI_calc()"></td>
+				<td> IVA (actual 23% 12800) </td>
+				<td><input size="5" name="GR2" maxlength="5" type="text" value="0" align="top"></td>
+				<td><input name="CR2" type="checkbox" align="top" onclick="UBI_calc()"></td>
+			</tr>
+			<tr>
+				<td> Assembléia da República e Subvenções [3] FALTA PRESIDÊNCIA (total: 129) </td>
+				<td><input size="5" name="GR3" maxlength="5" type="text" align="top" value="129"></td>
+				<td><input size="5" name="CR3" type="checkbox" align="top" onclick="UBI_calc()"></td>
+				<td> IRS (actual ??% 9085)</td>
+				<td><input size="5" name="GR4" maxlength="5" type="text" align="top" value="0"></td>
+				<td><input size="5" name="CR4" type="checkbox" align="top" onclick="UBI_calc()"></td>
+			</tr>
+			<tr>
+				<td>Militares [2] (total: 3339)</td>
+				<td><input size="5" name="GR5" maxlength="5" type="text" align="top" value="3339"></td>
+				<td><input size="5" name="CR5" type="checkbox" align="top" onclick="UBI_calc()"></td>
+				<td>IRC (actual ??% 4280)</td>
+				<td><input size="5" name="GR6" maxlength="5" type="text" align="top" value="0"></td>
+				<td><input size="5" name="CR6" type="checkbox" align="top" onclick="UBI_calc()"></td>
+			</tr>
+			<tr>
+				<td  colspan="3"> <br> </td>
+				<td  colspan="3"> METE IRS=0 E IRC=0, E IVA = 47% <br> A Receita fica igual </td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td><input size="5" name="GR7" maxlength="5" type="text" align="top" value="0"></td>
+				<td><input size="5" name="CR7" type="checkbox" align="top" onclick="UBI_calc()"></td>
+				<td>Lucros da Banca [4] (total>=1089)</td>
+				<td><input size="5" name="GR8" maxlength="5" type="text" align="top" value="1089"></td>
+				<td><input size="5" name="CR8" type="checkbox" align="top" onclick="UBI_calc()"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input size="5" name="GR9" maxlength="5" type="text" align="top" value="0"></td>
+				<td><input size="5" name="CR9" type="checkbox" align="top" onclick="UBI_calc()"></td>
+				<td>Fundos Europeus [5]</td>
+				<td><input size="5" name="GR10" maxlength="5" type="text" align="top" value="4000"></td>
+				<td><input size="5" name="CR10" type="checkbox" align="top" onclick="UBI_calc()"></td>
+			</tr>
+			<tr>
+				<td>Outras?</td>
+				<td><input size="5" name="GR11" maxlength="5" type="text" align="top" value="0"></td>
+				<td><input size="5" name="CR11" type="checkbox" align="top" onclick="UBI_calc()"></td>
+				<td>Outras?</td>
+				<td><input size="5" name="GR12" maxlength="5" type="text" align="top" value="0"></td>
+				<td><input size="5" name="CR12" type="checkbox" align="top" onclick="UBI_calc()"></td>
+			</tr>
+		</tbody>
+		</table>
+		<p>
+			RBI:
+			<input size="7" name="Final_UBI" type="text" value="0" align="top"> Euros/ano
+			<input size="7" name="Final_UBI_Monthly" type="text" value="0" align="top"> Euros/mês
+			<!-- Partial Phase-Out UBI: $<input size="7" name="Final_Adjusted_UBI" type="text" value="0" align="top"> /-->
+			<!-- Full Phase-Out Income: $<input size="7" name="Final_Out_UBI" type="text" value="0" align="top"> /-->
+		</p>
+	</form>
+
+
+	Referências:<br>
+	[1] <a href="http://www.pordata.pt/Portugal/Despesa+da+Seguranca+Social+total+e+por+tipo-100">http://www.pordata.pt/Portugal/Despesa+da+Seguranca+Social+total+e+por+tipo-100</a> <br>
+	[2] PIB 2010: 166.934.600 <a href="http://www.pordata.pt/Portugal/PIB+e+rendimentos-2412"> http://www.pordata.pt/Portugal/PIB+e+rendimentos-2412</a> <br>
+	[2] %PIB gasto em Militares 2010: 2% <a href="http://www.pordata.pt/Portugal/Despesas+do+Estado+orcamento+final+por+algumas+funcoes+em+percentagem+do+PIB-725"> http://www.pordata.pt/Portugal/Despesas+do+Estado+orcamento+final+por+algumas+funcoes+em+percentagem+do+PIB-725</a> <br>
+	[3] Orçamento da Assembléia da República <a href="http://www.parlamento.pt/Paginas/XIIL2sl_OAR2013.aspx">http://www.parlamento.pt/Paginas/XIIL2sl_OAR2013.aspx</a> <br>
+	[4] Lucros dos 3 maiores bancos em 2010 <a href="http://www.dn.pt/bolsa/interior.aspx?content_id=1629270">http://www.dn.pt/bolsa/interior.aspx?content_id=1629270</a> <br>
+	[5] <a href="http://www.dn.pt/inicio/economia/interior.aspx?content_id=3247131">http://www.dn.pt/inicio/economia/interior.aspx?content_id=3247131</a> <br>
+	<br>
+
+	População acima de 18: 8.8 milhões http://www.pordata.pt/Portugal/Populacao+residente+segundo+os+Censos+total+e+por+grupo+etario-2 <br>
+	População desempregada: 0.81 milhões http://www.pordata.pt/Portugal/Populacao+desempregada+total+e+por+tipo+de+desemprego-358 <br>
+	População empregada por conta de outrem: 3.628,4 milhões http://www.pordata.pt/Portugal/Populacao+desempregada+total+e+por+tipo+de+desemprego-358 <br>
+	População empregada por conta própria: 0.976 milhões http://www.pordata.pt/Portugal/Trabalhadores+por+conta+propria+total+e+por+nivel+de+escolaridade+completo-1387 <br>
+	População empregue pelo estado (salário pago por estado, vindo dos impostos): 0.6 milhões http://expresso.sapo.pt/portugal-tem-6087-mil-funcionarios-publicos=f726382<br>
+
+
+	<p>Comments and concerns welcome.</p>
+
+
+	<script language="JavaScript">
+
+	function UBI_calc()
+	{
+		//define valid grades and their values
+
+		var total_funds;
+		var population;
+
+		total_funds = 0;
+		population = 8.8 - 0.6; // in millions
+
+
+		if (GPACalcForm.CR1.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR1.value);
+
+		if (GPACalcForm.CR2.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR2.value);
+
+		if (GPACalcForm.CR3.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR3.value);
+
+		if (GPACalcForm.CR4.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR4.value);
+
+		if (GPACalcForm.CR5.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR5.value);
+
+		if (GPACalcForm.CR6.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR6.value);
+
+		if (GPACalcForm.CR7.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR7.value);
+
+		if (GPACalcForm.CR8.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR8.value);
+
+		if (GPACalcForm.CR9.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR9.value);
+
+		if (GPACalcForm.CR10.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR10.value);
+
+		if (GPACalcForm.CR11.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR11.value);
+
+		if (GPACalcForm.CR12.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR12.value);
+
+
+		//One equation: 0.2234x^2-1.0349x
+		//total_funds = funds
+
+		var per_person;
+		per_person = total_funds/population;
+
+		/* var SS_replacement;
+		var SS_replacement2;
+		SS_per = per_person;
+		SS_replacement = -0.000000000010858501053*SS_per*SS_per*SS_per + 0.000000437652882408766*SS_per*SS_per - 0.000230074156021193000*SS_per;
+		if (SS_replacement < 0) SS_replacement = 0;
+		SS_replacement = (100-SS_replacement)/100;
+		SS_replacement2 = SS_replacement;
+		SS_replacement = SS_replacement*SS_per*30000000/1000000000;
+		SS_replacement = SS_replacement - (1-SS_replacement2)*0.5*SS_per*30000000/1000000000;
+		//This is people who lose + the people who gain;
+		if (GPACalcForm.CR1.checked) SS_replacement=0;
+		if (SS_replacement > 594) SS_replacement=594;
+		GPACalcForm.GR3.value = SS_replacement;
+
+		// 43% under 25K. 28% between 25-50K, 29% above.
+		// Total Funds = X*0.43 + 0.75*X*0.29 + 0.5*0.28
+		if (GPACalcForm.CR3.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR3.value);
+		 */
+		per_person = total_funds/population;
+
+		GPACalcForm.Final_UBI.value = Math.round(per_person);
+		GPACalcForm.Final_UBI_Monthly.value = Math.round(per_person/12);
+		GPACalcForm.Final_Adjusted_UBI.value = Math.round(per_person/0.785);
+		GPACalcForm.Final_Out_UBI.value = Math.round(per_person/0.575);
+		return 0;
+	}
+	</script>
+
+</body>
+</html>
