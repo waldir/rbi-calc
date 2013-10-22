@@ -6,13 +6,15 @@
 	<style type="text/css">
 		form > table {
 			background-color: silver;
-			width: 600px;
-			margin: 0 auto;
 			border-collapse: collapse;
 		}
 		form > table td, form > table th {
 			border: 1px solid grey;
 			padding: 0.5em;
+		}
+		form > table, p, ol, ul {
+			width: 600px;
+			margin: 1em auto;
 		}
 	</style>
 </head>
@@ -26,12 +28,12 @@
 		<table>
 		<tbody>
 			<tr>
-				<th>DESPESAS				</th>
-				<th>Euros (Milhões)			</th>
-				<th>Substituir por RBI?		</th>
-				<th>RECEITAS				</th>
-				<th>Euros (Milhões)			</th>
-				<th>Aumentar e por no RBI?	</th>
+				<th>DESPESAS</th>
+				<th>Euros (Milhões)</th>
+				<th>Substituir por RBI?</th>
+				<th>RECEITAS</th>
+				<th>Euros (Milhões)</th>
+				<th>Aumentar e por no RBI?</th>
 			</tr>
 			<tr>
 				<td>Segurança Social <a href="http://www.pordata.pt/Portugal/Despesa+da+Seguranca+Social+total+e+por+tipo-100">[1]</a> (total: 29356) </td>
@@ -88,32 +90,48 @@
 		</tbody>
 		</table>
 		<p>
-			RBI:
-			<input size="7" name="Final_UBI" type="text" value="0" align="top"> Euros/ano
+			<strong>RBI:</strong> &emsp;&emsp;
+			<input size="7" name="Final_UBI" type="text" value="0" align="top"> Euros/ano &emsp;&emsp;
 			<input size="7" name="Final_UBI_Monthly" type="text" value="0" align="top"> Euros/mês
 			<!-- Partial Phase-Out UBI: $<input size="7" name="Final_Adjusted_UBI" type="text" value="0" align="top"> /-->
 			<!-- Full Phase-Out Income: $<input size="7" name="Final_Out_UBI" type="text" value="0" align="top"> /-->
 		</p>
 	</form>
 
+	<p>Referências:</p>
+	<ol>
+		<li><a href="http://www.pordata.pt/Portugal/Despesa+da+Seguranca+Social+total+e+por+tipo-100">http://www.pordata.pt/Portugal/Despesa+da+Seguranca+Social+total+e+por+tipo-100</a></li>
+		<li>PIB 2010: 166.934.600 <a href="http://www.pordata.pt/Portugal/PIB+e+rendimentos-2412"> http://www.pordata.pt/Portugal/PIB+e+rendimentos-2412</a></li>
+		<li>%PIB gasto em Militares 2010: 2% <a href="http://www.pordata.pt/Portugal/Despesas+do+Estado+orcamento+final+por+algumas+funcoes+em+percentagem+do+PIB-725">Despesas do Estado: orçamento final por algumas funções em % do PIB</a></li>
+		<li>Orçamento da Assembléia da República <a href="http://www.parlamento.pt/Paginas/XIIL2sl_OAR2013.aspx">http://www.parlamento.pt/Paginas/XIIL2sl_OAR2013.aspx</a></li>
+		<li>Lucros dos 3 maiores bancos em 2010 <a href="http://www.dn.pt/bolsa/interior.aspx?content_id=1629270">http://www.dn.pt/bolsa/interior.aspx?content_id=1629270</a></li>
+		<li><a href="http://www.dn.pt/inicio/economia/interior.aspx?content_id=3247131">http://www.dn.pt/inicio/economia/interior.aspx?content_id=3247131</a></li>
+	</ol>
 
-	Referências:<br>
-	[1] <a href="http://www.pordata.pt/Portugal/Despesa+da+Seguranca+Social+total+e+por+tipo-100">http://www.pordata.pt/Portugal/Despesa+da+Seguranca+Social+total+e+por+tipo-100</a> <br>
-	[2] PIB 2010: 166.934.600 <a href="http://www.pordata.pt/Portugal/PIB+e+rendimentos-2412"> http://www.pordata.pt/Portugal/PIB+e+rendimentos-2412</a> <br>
-	[2] %PIB gasto em Militares 2010: 2% <a href="http://www.pordata.pt/Portugal/Despesas+do+Estado+orcamento+final+por+algumas+funcoes+em+percentagem+do+PIB-725"> http://www.pordata.pt/Portugal/Despesas+do+Estado+orcamento+final+por+algumas+funcoes+em+percentagem+do+PIB-725</a> <br>
-	[3] Orçamento da Assembléia da República <a href="http://www.parlamento.pt/Paginas/XIIL2sl_OAR2013.aspx">http://www.parlamento.pt/Paginas/XIIL2sl_OAR2013.aspx</a> <br>
-	[4] Lucros dos 3 maiores bancos em 2010 <a href="http://www.dn.pt/bolsa/interior.aspx?content_id=1629270">http://www.dn.pt/bolsa/interior.aspx?content_id=1629270</a> <br>
-	[5] <a href="http://www.dn.pt/inicio/economia/interior.aspx?content_id=3247131">http://www.dn.pt/inicio/economia/interior.aspx?content_id=3247131</a> <br>
-	<br>
+	<ul>
+		<li>
+			População acima de 18:
+			<a href="http://www.pordata.pt/Portugal/Populacao+residente+segundo+os+Censos+total+e+por+grupo+etario-2">8.8 milhões</a>
+		</li>
+		<li>
+			População desempregada:
+			<a href="http://www.pordata.pt/Portugal/Populacao+desempregada+total+e+por+tipo+de+desemprego-358">0.81 milhões</a>
+		</li>
+		<li>
+			População empregada por conta de outrem:
+			<a href="http://www.pordata.pt/Portugal/Populacao+desempregada+total+e+por+tipo+de+desemprego-358">3.628,4 milhões</a>
+		</li>
+		<li>
+			População empregada por conta própria:
+			<a href="http://www.pordata.pt/Portugal/Trabalhadores+por+conta+propria+total+e+por+nivel+de+escolaridade+completo-1387">0.976 milhões</a>
+		</li>
+		<li>
+			População empregue pelo estado (salário pago por estado, vindo dos impostos):
+			<a href="http://expresso.sapo.pt/portugal-tem-6087-mil-funcionarios-publicos=f726382">0.6 milhões</a>
+		</li>
+	</ul>
 
-	População acima de 18: 8.8 milhões http://www.pordata.pt/Portugal/Populacao+residente+segundo+os+Censos+total+e+por+grupo+etario-2 <br>
-	População desempregada: 0.81 milhões http://www.pordata.pt/Portugal/Populacao+desempregada+total+e+por+tipo+de+desemprego-358 <br>
-	População empregada por conta de outrem: 3.628,4 milhões http://www.pordata.pt/Portugal/Populacao+desempregada+total+e+por+tipo+de+desemprego-358 <br>
-	População empregada por conta própria: 0.976 milhões http://www.pordata.pt/Portugal/Trabalhadores+por+conta+propria+total+e+por+nivel+de+escolaridade+completo-1387 <br>
-	População empregue pelo estado (salário pago por estado, vindo dos impostos): 0.6 milhões http://expresso.sapo.pt/portugal-tem-6087-mil-funcionarios-publicos=f726382<br>
-
-
-	<p>Comments and concerns welcome.</p>
+	<p>Comentários e sugestões bem-vindos. Envie-os <a href="https://github.com/waldir/rbi-calc/issues/new">aqui</a>.</p>
 
 
 	<script language="JavaScript">
