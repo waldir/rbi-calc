@@ -62,8 +62,8 @@
 			</tr>
 			<tr>
 				<td>Juros da dívida [6] (total: 7.154,2)</td>
-				<td><input size="5" name="GR5" maxlength="5" type="text" align="top" value="7154"></td>
-				<td><input size="5" name="CR5" type="checkbox" align="top" onclick="UBI_calc()"></td>
+				<td><input size="5" name="GR13" maxlength="5" type="text" align="top" value="7154"></td>
+				<td><input size="5" name="CR13" type="checkbox" align="top" onclick="UBI_calc()"></td>
 				<td  colspan="3"> <br> </td>
 			</tr>
 			<tr>
@@ -187,6 +187,9 @@
 
 		if (GPACalcForm.CR12.checked)
 				total_funds = total_funds + parseInt(GPACalcForm.GR12.value);
+
+		if (GPACalcForm.CR13.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR13.value);
 
 
 		//One equation: 0.2234x^2-1.0349x
