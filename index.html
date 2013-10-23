@@ -188,8 +188,8 @@
 		if (GPACalcForm.CR12.checked)
 				total_funds = total_funds + parseInt(GPACalcForm.GR12.value);
 
-		//if (GPACalcForm.CR13.checked)
-		//		total_funds = total_funds + parseInt(GPACalcForm.GR13.value);
+		if (GPACalcForm.CR13.checked)
+				total_funds = total_funds + parseInt(GPACalcForm.GR13.value);
 
 
 		//One equation: 0.2234x^2-1.0349x
@@ -221,8 +221,8 @@
 
 		GPACalcForm.Final_UBI.value = Math.round(per_person);
 		GPACalcForm.Final_UBI_Monthly.value = Math.round(per_person/12);
-		GPACalcForm.Final_Adjusted_UBI.value = Math.round(per_person/0.785);
-		GPACalcForm.Final_Out_UBI.value = Math.round(per_person/0.575);
+		//GPACalcForm.Final_Adjusted_UBI.value = Math.round(per_person/0.785);
+		//GPACalcForm.Final_Out_UBI.value = Math.round(per_person/0.575);
 		return 0;
 	}
 	</script>
